@@ -18,7 +18,7 @@ class ForgetPassScreen extends StatefulWidget {
 
 class _ForgetPassScreenState extends State<ForgetPassScreen> {
   int resendOtpDuration = 30;
-
+  Timer? optTimer;
   @override
   void initState() {
     resendOTPTimer();
@@ -26,7 +26,7 @@ class _ForgetPassScreenState extends State<ForgetPassScreen> {
   }
 
   resendOTPTimer() {
-    Timer.periodic(const Duration(seconds: 1), (timer) {
+    optTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (resendOtpDuration <= 30) {
         setState(() => resendOtpDuration--);
         if (resendOtpDuration == 0) {
@@ -34,6 +34,12 @@ class _ForgetPassScreenState extends State<ForgetPassScreen> {
         }
       }
     });
+  }
+
+  @override
+  void dispose() {
+    optTimer!.cancel();
+    super.dispose();
   }
 
   @override

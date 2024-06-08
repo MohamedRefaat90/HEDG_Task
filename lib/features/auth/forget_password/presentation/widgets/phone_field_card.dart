@@ -1,6 +1,8 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hedg_task/core/constants/app_routes.dart';
 import 'package:hedg_task/core/helpers/fileds_validators.dart';
 import 'package:hedg_task/core/themes/app_colors.dart';
 
@@ -77,6 +79,7 @@ class _PhoneFieldCardState extends State<PhoneFieldCard> {
                   width: double.infinity,
                   press: () {
                     if (formKey.currentState!.validate()) {
+                      context.pushNamed(AppRoutes.resetPassword);
                       debugPrint(
                           countryCode + textEditingController.text.trim());
                     }

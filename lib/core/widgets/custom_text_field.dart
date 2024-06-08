@@ -52,6 +52,16 @@ class _CustomTextFieldState extends State<CustomTextField> {
             color: AppColors.textColor,
             fontWeight: FontWeight.w500,
             fontSize: 14),
+        suffixIcon: IconButton(
+          onPressed: () {
+            setState(() => widget.isobscure = !widget.isobscure);
+          },
+          icon: Icon(
+              widget.isobscure
+                  ? Icons.visibility_outlined
+                  : Icons.visibility_off_outlined,
+              color: const Color.fromARGB(106, 16, 40, 74)),
+        ),
         fillColor: AppColors.white,
         enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Color.fromARGB(34, 16, 40, 74)),
