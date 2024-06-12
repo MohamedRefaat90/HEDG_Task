@@ -44,6 +44,14 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   shared_preferences: ^2.2.3
   country_code_picker: ^3.0.0
+  otp_pin_field: ^1.2.4
+  easy_stepper: ^0.8.5
+  flutter_bloc: ^8.1.5
+  dotted_border: ^2.1.0
+  image_picker: ^1.1.2
+  lottie: ^3.1.2
+  another_flushbar: ^1.12.30
+  syncfusion_flutter_charts: ^26.1.35
 
 dev_dependencies:
   flutter_test:
@@ -74,6 +82,11 @@ flutter:
     - assets/images/onboarding/
     - assets/images/login/
     - assets/images/forget_password/
+    - assets/images/face_id/
+    - assets/images/varification/
+    - assets/images/home/
+    - assets/images/explore/
+    - assets/animation/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

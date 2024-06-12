@@ -1,55 +1,20 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hedg_task/core/constants/app_assets.dart';
 import 'package:hedg_task/core/themes/app_colors.dart';
-import 'package:hedg_task/core/widgets/custom_btn.dart';
 
+import '../../../../../core/widgets/custom_appbar.dart';
+import '../../../../../core/widgets/resend_otp_button.dart';
 import '../widgets/phone_field_card.dart';
 
-class ForgetPassScreen extends StatefulWidget {
+class ForgetPassScreen extends StatelessWidget {
   const ForgetPassScreen({super.key});
-
-  @override
-  State<ForgetPassScreen> createState() => _ForgetPassScreenState();
-}
-
-class _ForgetPassScreenState extends State<ForgetPassScreen> {
-  int resendOtpDuration = 30;
-  Timer? optTimer;
-  @override
-  void initState() {
-    resendOTPTimer();
-    super.initState();
-  }
-
-  resendOTPTimer() {
-    optTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (resendOtpDuration <= 30) {
-        setState(() => resendOtpDuration--);
-        if (resendOtpDuration == 0) {
-          timer.cancel();
-        }
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    optTimer!.cancel();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-          leading: IconButton(
-              onPressed: () => context.pop(),
-              icon: const Icon(Icons.arrow_back_ios))),
+      appBar: customAppbar(context),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -73,22 +38,7 @@ class _ForgetPassScreenState extends State<ForgetPassScreen> {
           20.verticalSpace,
           const PhoneFieldCard(),
           20.verticalSpace,
-          resendOtpDuration == 0
-              ? CustomBTN(
-                  widget: const Text("Resen OTP"),
-                  color: AppColors.primaryColor,
-                  padding: 12,
-                  press: () {
-                    setState(() {
-                      resendOtpDuration = 30;
-                      resendOTPTimer();
-                    });
-                  })
-              : Text("Re-Send Code In 0:$resendOtpDuration",
-                  style: const TextStyle(
-                      color: AppColors.primaryColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14))
+          const ResendOtpButton()
         ]),
       ),
     );

@@ -24,7 +24,8 @@ class LoginFormCard extends StatelessWidget {
         child: Column(children: [
           CustomTextField(placeholderText: "Email", isobscure: false),
           10.verticalSpace,
-          CustomTextField(placeholderText: "Password", isobscure: true),
+          CustomTextField(
+              placeholderText: "Password", isPass: true, isobscure: true),
           5.verticalSpace,
           TextButton(
               onPressed: () => context.pushNamed(AppRoutes.forgetPassword),
