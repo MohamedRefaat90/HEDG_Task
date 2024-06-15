@@ -1,4 +1,4 @@
-# hedg_task
+# HEDG Task
 
 ## Walkthrough Video
 
