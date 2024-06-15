@@ -10,4 +10,7 @@ abstract class AppRoutes {
   static const String penndingApproval = '/penndingApproval';
   static const String homeNavigation = '/homeNavigation';
   static const String home = '/home';
+  static const String payment = '/payment';
+  static const String explore = '/explore';
+  static const String profile = '/profile';
 }

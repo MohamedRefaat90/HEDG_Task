@@ -32,6 +32,16 @@ abstract class AppAssets {
 
   // ======================== Home ========================
   static const String homeLogo = 'assets/images/home/homelogo.svg';
-  // ======================== Home ========================
   static const String arrowUp = 'assets/images/arrowUP.svg';
+
+  // ======================== profile ========================
+  static const String bank = 'assets/images/profile/bank.svg';
+  static const String history = 'assets/images/profile/History.svg';
+  static const String agent = 'assets/images/profile/agent.svg';
+  static const String gear = 'assets/images/profile/gear.svg';
+  static const String about = 'assets/images/profile/About.svg';
+  static const String terms = 'assets/images/profile/Terms.svg';
+  static const String dictionary = 'assets/images/profile/dictionary.svg';
+  static const String help = 'assets/images/profile/Help.svg';
+  static const String preformance = 'assets/images/profile/preformance.svg';
 }

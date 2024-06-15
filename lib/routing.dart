@@ -11,6 +11,7 @@ import 'package:hedg_task/features/home/cubit/home_cubit.dart';
 import 'package:hedg_task/features/home/presentation/screen/home_navigation.dart';
 import 'package:hedg_task/features/home/presentation/screen/home_screen.dart';
 import 'package:hedg_task/features/onboarding/presentation/screen/onboarding_screen.dart';
+import 'package:hedg_task/features/payment/presentation/screen/payment_screen.dart';
 import 'package:hedg_task/features/splash/splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -19,8 +20,9 @@ import 'features/auth/e_kyc/presentation/screen/E-KYC_screen.dart';
 import 'features/auth/face_id/presentation/screen/face_id_screen.dart';
 import 'features/auth/forget_password/presentation/screen/forget_pass_screen.dart';
 import 'features/auth/login/presentation/screen/login_screen.dart';
+import 'features/profile/presentation/screen/profile_screen.dart';
 
-GoRouter router = GoRouter(initialLocation: AppRoutes.homeNavigation, routes: [
+GoRouter router = GoRouter(initialLocation: AppRoutes.payment, routes: [
   GoRoute(
     path: "/",
     builder: (context, state) => const SplashScreen(),
@@ -103,4 +105,22 @@ GoRouter router = GoRouter(initialLocation: AppRoutes.homeNavigation, routes: [
             child: const HomeScreen(),
           ),
           transitionType: PageTransitionType.bottomToTop)),
+  GoRoute(
+      path: AppRoutes.payment,
+      name: AppRoutes.payment,
+      pageBuilder: (context, state) => CustomTransition(
+          child: BlocProvider<HomeCubit>.value(
+            value: HomeCubit(),
+            child: const PaymentScreen(),
+          ),
+          transitionType: PageTransitionType.bottomToTop)),
+  GoRoute(
+      path: AppRoutes.profile,
+      name: AppRoutes.profile,
+      pageBuilder: (context, state) => CustomTransition(
+          child: BlocProvider<HomeCubit>.value(
+            value: HomeCubit(),
+            child: const ProfileScreen(),
+          ),
+          transitionType: PageTransitionType.rightToLeft)),
 ]);
